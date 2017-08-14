@@ -38,7 +38,7 @@ namespace LINQ_Practice
         [TestMethod]
         public void GetFirstCohortWherePrimaryInstructorIsKate()
         {
-            var ActualCohort = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var ActualCohort = PracticeData.First(c => c.PrimaryInstructor.FirstName == "Kate");
             Assert.AreEqual(ActualCohort, CohortBuilder.Cohort4);
         }
 
@@ -46,14 +46,14 @@ namespace LINQ_Practice
         [TestMethod]
         public void GetFirstCohortWithThreeJuniorInstructors()
         {
-            var ActualCohort = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var ActualCohort = PracticeData.First(c => c.JuniorInstructors.Count == 3);
             Assert.AreEqual(ActualCohort, CohortBuilder.Cohort3);
         }
 
         [TestMethod]
         public void GetFirstCohortThatIsFullTimeAndPrimaryInstructorBirthdayInTheFuture()
         {
-            var ActualCohort = PracticeData/*FILL IN LINQ EXPRESSION*/;
+            var ActualCohort = PracticeData.First(c => c.FullTime && c.PrimaryInstructor.Birthday > DateTime.Now);
             Assert.AreEqual(ActualCohort, CohortBuilder.Cohort2);
         }
 
